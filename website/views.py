@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
-# from website.models import Contact
-# from website.forms import NameForm, ContactForm, NewsletterForm
-# from django.contrib import messages
+from website.models import Contact
+from website.forms import NameForm, ContactForm, NewsletterForm
+from django.contrib import messages
 # Create your views here.
 
 
@@ -14,7 +14,21 @@ def about_view(request) :
 
 
 def contact_view(request) :
-    return render(request, "website/contact.html")
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.cleaned_data['name'] = 'Unknown'
+            
+            contact = form.save(commit=False)
+            contact.name = form.cleaned_data['name']
+            contact.subject = form.cleaned_data['subject']
+            contact.save()
+            messages.add_message(request,messages.SUCCESS,'your ticket submited successfully .')
+        else:
+            messages.add_message(request,messages.ERROR,'your ticket didnt submited successfully .')
+
+    form = ContactForm ()        
+    return render (request, 'website/contact.html', {'form': form})
 
 
 def newsletter_view(request) :
