@@ -14,21 +14,7 @@ def about_view(request) :
 
 
 def contact_view(request) :
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.cleaned_data['name'] = 'Unknown'
-            
-            contact = form.save(commit=False)
-            contact.name = form.cleaned_data['name']
-            contact.subject = form.cleaned_data['subject']
-            contact.save()
-            messages.add_message(request,messages.SUCCESS,'your ticket submited successfully .')
-        else:
-            messages.add_message(request,messages.ERROR,'your ticket didnt submited successfully .')
-
-    form = ContactForm ()        
-    return render (request, 'website/contact.html', {'form': form})
+    return render(request, "website/contact.html")
 
 
 def newsletter_view(request) :
