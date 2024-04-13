@@ -10,12 +10,10 @@ class NameForm(forms.Form):
 
 class ContactForm (forms.ModelForm) :
     # captcha = CaptchaField()
-
-    subject = forms.CharField(required=False)
     
     class Meta:
         model = Contact
-        fields = ['name','email','subject','message']
+        fields = ['name','email','message']
 
 
 class SubscribeForm(forms.ModelForm):
