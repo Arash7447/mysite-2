@@ -1,6 +1,15 @@
 {% load static %}
 
 <!-- Header Start --> 
+{% if messages %}
+    <div class="popup">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
 
 <header class="navigation">
 	<div class="header-top ">
@@ -109,15 +118,16 @@
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
 					<h4 class="text-capitalize mb-4">Subscribe Us</h4>
-					<p>Subscribe to get latest news article and resources  </p>
-
-					<form action="#" class="sub-form">
-						<input type="text" class="form-control mb-3" placeholder="Subscribe Now ...">
-						<a href="#" class="btn btn-main btn-small">subscribe</a>
+					<p>Subscribe to get latest news article and resources</p>
+					
+					<form action="{% url 'website:subscribe' %}" method="post" class="sub-form">
+						{% csrf_token %}
+						<input type="email" name="email" class="form-control mb-3" placeholder="Email Address ...">
+						<button class="btn btn-main btn-small" type="submit" value="Submit">subscribe</button>
 					</form>
 				</div>
 			</div>
-
+			
 			<div class="col-lg-3 ml-auto col-sm-6">
 				<div class="widget">
 					<div class="logo mb-4">

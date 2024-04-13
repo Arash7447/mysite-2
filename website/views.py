@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
 from website.models import Contact
-from website.forms import NameForm, ContactForm, NewsletterForm
+from website.forms import NameForm, ContactForm, SubscribeForm
 from django.contrib import messages
 # Create your views here.
 
@@ -31,14 +31,16 @@ def contact_view(request) :
     return render (request, 'website/contact.html', {'form': form})
 
 
-def newsletter_view(request) :
+def subscribe_view(request) :
     if request.method == 'POST':
-        form = NewsletterForm(request.POST)
+        form = SubscribeForm(request.POST)
         if form.is_valid():
             form.save()
             messages.add_message(request,messages.SUCCESS,'your email address submited successfully .')
             return HttpResponseRedirect('/')
 
-    else :
-        messages.add_message(request,messages.ERROR,'your email address did not submited successfully .')
-        return HttpResponseRedirect('/')
+        else :
+            messages.add_message(request,messages.ERROR,'your email address did not submited successfully .')
+            return HttpResponseRedirect('/')
+    else:
+        return HttpResponse('This view requires a POST request.')
