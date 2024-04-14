@@ -56,8 +56,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                {% for post in posts %}
                 <div class="row">
+                  {% for post in posts %}
 	<div class="col-lg-6 col-md-6 mb-5">
 		<div class="blog-item">
 			<img src="{{post.image.url}}" alt="" class="img-fluid rounded">
@@ -74,10 +74,11 @@
 			</div>
 		</div>
 	</div>
+  {% endfor %}
 </div>  
-                {% endfor %}
-                <div class="row">
-                </div>
+                
+
+        
 
         </div>
         <div class="col-lg-4">
