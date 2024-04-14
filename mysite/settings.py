@@ -31,15 +31,44 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django_extensions',
+    'django.contrib.sites',
+    'debug_toolbar',
+    'taggit',
+    'django_summernote',
+    'captcha',
+    'django.contrib.sitemaps',
+    'robots',
     'website.apps.WebsiteConfig',
     'blog',
+    # 'accounts'
 ]
+
+# robots :
+
+ROBOTS_USE_HOST = True
+ROBOTS_USE_SITEMAP = True
+
+# summer note configs :
+
+SUMMERNOTE_THEME = 'bs4'
+
+
+# captcha admin settings :
+
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
