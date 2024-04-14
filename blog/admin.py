@@ -13,7 +13,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ('status','author')
     #ordering = ['-created_date']
     search_fields = ['title','content']
-    summernote_fields = ('content',)
+    summernote_fields = ()
 
 class CommentAdmin(admin.ModelAdmin):
     date_hierarchy = "created_date"

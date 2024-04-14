@@ -68,7 +68,7 @@
 				</div> 
 
 				<h3 class="mt-3 mb-3"><a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a></h3>
-				<p class="mb-4">{{ post.content|truncatewords:20 }}</p>
+				<p class="mb-4">{{ post.content|truncatewords:10 }}</p>
 
 				<a href="{{post.id}}" class="btn btn-small btn-main btn-round-full">Learn More</a>
 			</div>
