@@ -1,0 +1,8 @@
+{% load static %}
+
+<div class="sidebar-widget search card p-4 mb-3 border-0">
+    <form >
+        <input type="text" class="form-control" action="{% url 'blog:search' %}" method="get" placeholder="search" name="s">
+        <button type="submit" class="btn btn-mian btn-small d-block mt-2">search</button>
+    </form>
+</div>

@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('author/<str:author_username>', blog_view, name="author"),
 
-    # path('search/',blog_search, name="search"),
+    path('search/',blog_search, name="search"),
 
     # path("rss/feed/", LatestEntriesFeed()),
     
