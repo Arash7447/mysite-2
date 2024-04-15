@@ -24,7 +24,7 @@ def snippet (value,arg = 20) :
     return value [:arg] + '...'
 
 @register.inclusion_tag('blog/popular-posts.html')
-def latestposts(arg = 2) :
+def latestposts(arg = 3) :
     posts = Post.objects.filter(status = 1).order_by('published_date')[:arg]
     return {'posts': posts}
 
