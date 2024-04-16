@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'robots',
     'website.apps.WebsiteConfig',
     'blog',
-    # 'accounts'
+    'accounts'
 ]
 
 # sites framework :
@@ -175,3 +175,21 @@ INTERNAL_IPS = [
      '127.0.0.1',
 ]
 
+CSRF_COOKIE_SECURE = True
+
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailOrUsernameModelBackend']
+
+# forget password settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ghahremania87@gmail.com'
+EMAIL_HOST_PASSWORD = 'acba hlui bikh kqrz'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+
+# for checking reset password timeout
+
+PASSWORD_RESET_TIMEOUT = 300  # 5 minutes

@@ -52,9 +52,9 @@ urlpatterns = [
 
     path('captcha/', include('captcha.urls')),
 
-    # path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
 
-    # path('accounts/', include('accounts.urls', namespace='registration')),
+    path('accounts/', include('accounts.urls', namespace='registration')),
 
     
 ]
