@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'multi_captcha_admin',
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +51,11 @@ INSTALLED_APPS = [
     'blog',
     # 'accounts'
 ]
+
+# sites framework :
+
+SITE_ID = 2
+
 
 # robots :
 
@@ -165,4 +170,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+     '127.0.0.1',
+]
 
