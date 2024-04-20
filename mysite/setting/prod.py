@@ -6,9 +6,9 @@ from mysite.settings import *
 SECRET_KEY = 'django-insecure-sqzj33aqnv%63@d30s1o&z@4-edajf&b+s#a7iqai6up2bh)c6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thearashghahremani.ir','www.thearashghremani.ir']
 
 
 # INSTALLED_APPS = []
