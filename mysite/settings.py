@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'robots',
     'website.apps.WebsiteConfig',
     'blog',
-    'accounts'
+    'accounts',
+    'compressor',
 ]
 
 
